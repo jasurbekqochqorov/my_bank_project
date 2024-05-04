@@ -41,15 +41,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   _loginUser(LoginUserEvent event, emit) async {
     emit(state.copyWith(status: FormsStatus.loading));
-
     NetworkResponse networkResponse =
     await authRepository.logInWithEmailAndPassword(
-      email: "${event.username}@gmail.com".toLowerCase(),
+      email: "${event.username}@gmail.com",
       password: event.password,
     );
     if (networkResponse.errorText.isEmpty) {
+      UserCredential userCredential = networkResponse.data as UserCredential;
+      UserModel userModel=state.userModel.copyWith(
+          authId:userCredential.user!.uid
+      );
       emit(state.copyWith(
         status: FormsStatus.authenticated,
+        userModel:userModel
       ));
     } else {
       emit(state.copyWith(
@@ -62,14 +66,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     debugPrint("AAAAA1");
     NetworkResponse networkResponse =
     await authRepository.registerWithEmailAndPassword(
-      email: "${event.userModel.username.toLowerCase()}@gmail.com".trim(),
+      email:event.userModel.email,
       password: event.userModel.password,
     );
     debugPrint("AAAAA2");
     if (networkResponse.errorText.isEmpty) {
-      UserCredential userCredential = networkResponse.data;
+      UserCredential userCredential = networkResponse.data as UserCredential;
       UserModel userModel=event.userModel.copyWith(
-        authId:   userCredential.user!.uid
+        authId:userCredential.user!.uid
       );
       emit(state.copyWith(
           status: FormsStatus.authenticated,

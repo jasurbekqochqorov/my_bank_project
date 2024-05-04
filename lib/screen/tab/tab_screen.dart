@@ -23,7 +23,7 @@ class _TabScreenState extends State<TabScreen> {
       bottomNavigationBar: BottomNavigationBar(
         // backgroundColor: AppColors.black,
         currentIndex: activeIndex,
-        backgroundColor: AppColors.c_151940,
+        backgroundColor: AppColors.white,
         onTap: (index) {
           setState(() {
             activeIndex = index;

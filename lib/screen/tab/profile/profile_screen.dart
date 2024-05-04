@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_bank_project/blocs/auth/auth_bloc.dart';
 import 'package:my_bank_project/blocs/user_profile/user_bloc.dart';
-import 'package:my_bank_project/blocs/user_profile/user_event.dart';
 import 'package:my_bank_project/blocs/user_profile/user_state.dart';
 import 'package:my_bank_project/data/models/form_status.dart';
 import 'package:my_bank_project/screen/routes.dart';
@@ -12,7 +11,6 @@ import 'package:my_utils/my_utils.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
-
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
@@ -22,12 +20,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Icons.storage),
         title: const Text("Profile screen"),
         actions: [
           IconButton(onPressed: (){
-
-          }, icon:Icon(Icons.more_horiz,size: 25.w,))
+            Navigator.pushNamed(context,RouteNames.updateProfile);
+          }, icon:Icon(Icons.edit,size: 25.w,))
         ],
       ),
       body: BlocBuilder<UserBloc, UserState>(

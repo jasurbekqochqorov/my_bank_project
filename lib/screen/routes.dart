@@ -7,6 +7,7 @@ import 'package:my_bank_project/screen/payment/payment_screen.dart';
 import 'package:my_bank_project/screen/splash/splash_screen.dart';
 import 'package:my_bank_project/screen/tab/tab_screen.dart';
 import 'package:my_bank_project/screen/transfer/transfer_screen.dart';
+import 'package:my_bank_project/screen/update_profile/update_profile_screen.dart';
 import 'auth/register/register_screen.dart';
 import 'auth/singIn/auth_screen.dart';
 import 'no_internet/no_internet_screen.dart';
@@ -43,7 +44,8 @@ class AppRoutes {
         return navigate(const SetPinScreen());
       case RouteNames.touchIdRoute:
         return navigate(const TouchIdScreen());
-
+      case RouteNames.updateProfile:
+        return navigate(const UpdateProfileScreen());
       default:
         return navigate(
           const Scaffold(
@@ -72,5 +74,6 @@ class RouteNames {
   static const String setPinRoute = "/set_pin_route";
   static const String confirmPinRoute = "/confirm_pin_route";
   static const String entryRoute = "/entry_route";
+  static const String updateProfile = "/update_profile_route";
   static const String touchIdRoute = "/touch_id_route";
 }

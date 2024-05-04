@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_bank_project/blocs/user_profile/user_event.dart';
 import 'package:my_bank_project/blocs/user_profile/user_state.dart';
@@ -46,7 +47,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     if(networkResponse.errorCode.isEmpty){
       emit(state.copyWith(
           formsStatus: FormsStatus.success,
-          userModel:UserModel.initial()
+          userModel:networkResponse.data as UserModel
       ));
     }
     else{
@@ -78,7 +79,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     if(networkResponse.errorCode.isEmpty){
       emit(state.copyWith(
           formsStatus: FormsStatus.success,
-          userModel:UserModel.initial()
+          userModel:networkResponse.data as UserModel
       ));
     }
     else{

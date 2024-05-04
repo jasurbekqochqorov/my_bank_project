@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:my_bank_project/data/models/user_model.dart';
 
 import '../../utils/constants/app_constants.dart';
@@ -41,7 +42,7 @@ class UserProfileRepository {
           .collection(AppConstants.users)
           .doc(userModel.userId)
           .update(userModel.toJsonForUpdate());
-      return NetworkResponse(data: 'success');
+      return NetworkResponse(data:'success');
     } on FirebaseException catch (error) {
       return NetworkResponse(errorCode: error.code);
     }
@@ -80,7 +81,6 @@ class UserProfileRepository {
           .collection(AppConstants.users)
           .where("authId", isEqualTo:uid)
           .get());
-
       List<UserModel> users = querySnapshot.docs.map((e) =>
       UserModel.fromJson(e.data() as Map<String, dynamic>)).toList();
       return NetworkResponse(

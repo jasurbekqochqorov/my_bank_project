@@ -74,6 +74,7 @@ class UserModel {
   }
   Map<String, dynamic> toJsonForUpdate() {
     return {
+      "userId":userId,
       'username': username,
       'lastname': lastname,
       'email': email,

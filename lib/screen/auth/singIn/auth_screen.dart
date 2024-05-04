@@ -130,6 +130,9 @@ class _AuthScreenState extends State<AuthScreen> {
             if(state.statusMessage=='registered'){
               BlocProvider.of<UserBloc>(context).add(AddUserEvent(userModel: state.userModel));
             }
+            else{
+              BlocProvider.of<UserBloc>(context).add(GetUserByUIDEvent(uid:state.userModel.authId),);
+            }
             Navigator.pushNamedAndRemoveUntil(
               context,
               RouteNames.tabRoute,
@@ -142,7 +145,7 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   void dispose() {
     emailController.dispose();
-    emailController.dispose();
+    passwordController.dispose();
     super.dispose();
   }
 }
