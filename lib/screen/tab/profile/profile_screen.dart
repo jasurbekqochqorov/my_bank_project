@@ -48,7 +48,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   width: width,
                   padding: EdgeInsets.symmetric(horizontal:8.w,vertical:4.w),
                   decoration: BoxDecoration(
-                    color: AppColors.c_1A72DD,
+                    color: AppColors.c_90CAF9,
                     borderRadius: BorderRadius.circular(8),
                     border: Border.all(width: 3.w,color: AppColors.black.withOpacity(0.4))
                   ),
@@ -63,7 +63,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   width: width,
                   padding: EdgeInsets.symmetric(horizontal:8.w,vertical:4.w),
                   decoration: BoxDecoration(
-                      color: AppColors.c_1A72DD,
+                      color:AppColors.c_90CAF9,
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(width: 3.w,color: AppColors.black.withOpacity(0.4))
                   ),
@@ -78,7 +78,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   width: width,
                   padding: EdgeInsets.symmetric(horizontal:8.w,vertical:4.w),
                   decoration: BoxDecoration(
-                      color: AppColors.c_1A72DD,
+                      color: AppColors.c_90CAF9,
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(width: 3.w,color: AppColors.black.withOpacity(0.4))
                   ),
@@ -93,7 +93,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   width: width,
                   padding: EdgeInsets.symmetric(horizontal:8.w,vertical:4.w),
                   decoration: BoxDecoration(
-                      color: AppColors.c_1A72DD,
+                      color: AppColors.c_90CAF9,
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(width: 3.w,color: AppColors.black.withOpacity(0.4))
                   ),
@@ -111,7 +111,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     width: width,
                     padding: EdgeInsets.symmetric(horizontal:8.w,vertical:4.w),
                     decoration: BoxDecoration(
-                        color: AppColors.c_1A72DD,
+                        color: AppColors.c_90CAF9,
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(width: 3.w,color: AppColors.black.withOpacity(0.4))
                     ),

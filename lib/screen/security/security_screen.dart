@@ -48,7 +48,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
                           const SnackBar(content: Text("Boimetrics Error")));
                     }
                     if (!context.mounted) return;
-                    // Navigator.pushNamedAndRemoveUntil(context, RouteNames.tabRoute, (route) => false);
+                    Navigator.pushNamedAndRemoveUntil(context, RouteNames.tabRoute, (route) => false);
                   }
                   setState(() {});
                 })

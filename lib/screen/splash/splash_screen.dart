@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:my_bank_project/blocs/auth/auth_bloc.dart';
@@ -25,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
   bool hasPin=false;
   _init(bool isAuthenticated) async {
     await Future.delayed(
-      const Duration(seconds: 2),
+      const Duration(seconds: 3),
     );
     if (!mounted) return;
     if (!isAuthenticated) {
@@ -72,22 +74,30 @@ class _SplashScreenState extends State<SplashScreen> {
             else {
               _init(false);
             }
-          }, child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SvgPicture.asset(
-                  AppImages.splash, width: 200.w, height: 200.h,),
-                SizedBox(height: 39.h,),
-                Text("Citibank", style: AppTextStyle.interBold.copyWith(
-                  color: AppColors.c_304FFE, fontSize: 66.w,
-                ),),
-                Text('The right relationship is everything.',
-                  style: AppTextStyle.interMedium.copyWith(
-                      color: AppColors.c_304FFE.withOpacity(0.7), fontSize: 18.w
-                  ),)
-              ],)
-        ),
+          }, child: Stack(
+            children: [
+              Image.asset(
+                AppImages.splash1, width: width, height:height,fit: BoxFit.cover,),
+              Positioned(
+                left: 20.w,
+                right: 20.w,
+                bottom: 25.h,
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                    Text("NBU bank", style: AppTextStyle.interBold.copyWith(
+                      color: AppColors.white, fontSize: 66.w,
+                    ),),
+                    Text('The right relationship is everything.',
+                      style: AppTextStyle.interMedium.copyWith(
+                          color: AppColors.white.withOpacity(0.7), fontSize: 18.w
+                      ),)
+                  ],),
+                ),
+              )
+            ],),
         )
     );
   }

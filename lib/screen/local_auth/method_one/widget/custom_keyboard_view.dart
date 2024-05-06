@@ -25,33 +25,58 @@ class CustomKeyboardView extends StatelessWidget {
         crossAxisCount: 3,
         children: [
           ...List.generate(9, (index) {
-            return IconButton(
-                onPressed: () {
-                  number.call("${index + 1}");
-                },
-                icon: Text(
-                  "${index + 1}",
-                  style: AppTextStyle.interBold
-                      .copyWith(color: AppColors.black, fontSize: 20.w),
-                ));
+            return Container(
+              margin: EdgeInsets.all(20.w),
+              child: IconButton(
+                  onPressed: () {
+                    number.call("${index + 1}");
+                  },
+                  style: IconButton.styleFrom(
+                    backgroundColor: AppColors.c_90CAF9
+                  ),
+                  icon: Text(
+                    "${index + 1}",
+                    style: AppTextStyle.interBold
+                        .copyWith(color: AppColors.black, fontSize: 20.w),
+                  )),
+            );
           }),
           Visibility(
             visible: isBiometric,
-              child: IconButton(
-            onPressed:onFingerButton,
-            icon:const Icon(Icons.fingerprint),
-          )),
-          IconButton(
-            onPressed: () {
-              number.call("0");
-            },
-            icon: Text(
-              "0",
-              style: AppTextStyle.interBold
-                  .copyWith(color: AppColors.black, fontSize: 18.w),
+              child: Padding(
+                padding:EdgeInsets.all(20.w),
+                child: IconButton(
+                  style: IconButton.styleFrom(
+                      backgroundColor: AppColors.c_90CAF9
+                  ),
+                            onPressed:onFingerButton,
+                            icon:const Icon(Icons.fingerprint),
+                          ),
+              )),
+          Padding(
+            padding:EdgeInsets.all(20.w),
+            child: IconButton(
+              style: IconButton.styleFrom(
+                  backgroundColor: AppColors.c_90CAF9
+              ),
+              onPressed: () {
+                number.call("0");
+              },
+              icon: Text(
+                "0",
+                style: AppTextStyle.interBold
+                    .copyWith(color: AppColors.black, fontSize: 18.w),
+              ),
             ),
           ),
-          IconButton(onPressed: onClearButton, icon: const Icon(Icons.clear)),
+          Padding(
+            padding:EdgeInsets.all(20.w),
+            child: IconButton(
+                style: IconButton.styleFrom(
+                    backgroundColor: AppColors.c_90CAF9
+                ),
+                onPressed: onClearButton, icon: const Icon(Icons.backspace)),
+          ),
         ],
       ),
     );

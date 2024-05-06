@@ -44,6 +44,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               ),)),
               const Spacer(),
               TextButton(onPressed: (){
+                StorageRepository.setBool(
+                  key: "is_new_user",
+                  value: true,
+                );
                 Navigator.pushReplacementNamed(
                     context, RouteNames.authRoute);
               }, child:Text("Skip",style: AppTextStyle.interMedium.copyWith(
