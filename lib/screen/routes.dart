@@ -4,6 +4,7 @@ import 'package:my_bank_project/screen/local_auth/method_one/entry_screen.dart';
 import 'package:my_bank_project/screen/local_auth/method_one/set_pin_screen.dart';
 import 'package:my_bank_project/screen/local_auth/method_two/touch_id_screen.dart';
 import 'package:my_bank_project/screen/payment/payment_screen.dart';
+import 'package:my_bank_project/screen/security/security_screen.dart';
 import 'package:my_bank_project/screen/splash/splash_screen.dart';
 import 'package:my_bank_project/screen/tab/tab_screen.dart';
 import 'package:my_bank_project/screen/transfer/transfer_screen.dart';
@@ -37,15 +38,17 @@ class AppRoutes {
       case RouteNames.onBoardingRoute:
         return navigate(const OnBoardingScreen());
       case RouteNames.confirmPinRoute:
-        return navigate(const ConfirmPinScreen());
+        return navigate( ConfirmPinScreen(pin:settings.arguments as String,));
       case RouteNames.entryRoute:
-        return navigate(const EntryScreen());
+        return navigate(const EntryPinScreen());
       case RouteNames.setPinRoute:
         return navigate(const SetPinScreen());
       case RouteNames.touchIdRoute:
         return navigate(const TouchIdScreen());
       case RouteNames.updateProfile:
         return navigate(const UpdateProfileScreen());
+      case RouteNames.securityRoute:
+        return navigate(const SecurityScreen());
       default:
         return navigate(
           const Scaffold(
@@ -76,4 +79,5 @@ class RouteNames {
   static const String entryRoute = "/entry_route";
   static const String updateProfile = "/update_profile_route";
   static const String touchIdRoute = "/touch_id_route";
+  static const String securityRoute = "/security";
 }

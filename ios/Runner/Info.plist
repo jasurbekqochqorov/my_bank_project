@@ -12,6 +12,8 @@
 	<string>AIzaSyDPFwWBi0BYhl4p4G2S1oXaxqn_Mlhi4cQ</string>
 	<key>GCM_SENDER_ID</key>
 	<string>521151325679</string>
+	<key>NSFaceIDUsageDescription</key>
+    <string>Why is my app authenticating using face id?</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>

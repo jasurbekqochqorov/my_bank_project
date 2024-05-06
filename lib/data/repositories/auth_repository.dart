@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:my_bank_project/data/local/storage_repository.dart';
 
 import '../models/exception/firebase_exception.dart';
 import '../models/network.dart';
@@ -65,6 +66,8 @@ class AuthRepository {
 
   Future<NetworkResponse> logOut() async {
     try {
+      await StorageRepository.setString(key: 'pin', value: '');
+      await StorageRepository.setBool(key: 'biometrics',value: false);
       await FirebaseAuth.instance.signOut();
       return NetworkResponse(data: 'success');
     } on FirebaseAuthException catch (e) {

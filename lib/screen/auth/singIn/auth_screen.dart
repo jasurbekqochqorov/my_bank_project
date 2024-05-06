@@ -31,7 +31,6 @@ class _AuthScreenState extends State<AuthScreen> {
     _init();
     super.initState();
   }
-
   Future<void> _init() async {
     User? user = FirebaseAuth.instance.currentUser;
     Future.microtask(() {
@@ -135,7 +134,7 @@ class _AuthScreenState extends State<AuthScreen> {
             }
             Navigator.pushNamedAndRemoveUntil(
               context,
-              RouteNames.tabRoute,
+              RouteNames.setPinRoute,
               (route) => false,
             );
           }

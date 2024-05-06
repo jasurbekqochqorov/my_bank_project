@@ -29,25 +29,101 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
       body: BlocBuilder<UserBloc, UserState>(
         builder: (context, state) {
-          return Center(
+          return Padding(
+            padding:EdgeInsets.symmetric(horizontal: 24.w,vertical:24.h),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
                   height: 40.h,
                 ),
-                Icon(
-                  Icons.account_circle_rounded,
-                  size: 100.w,
+                Center(
+                  child: Icon(
+                    Icons.account_circle_rounded,
+                    size: 100.w,
+                  ),
                 ),
-                Text(
-                  "${state.userModel.username} ${state.userModel.lastname}",
-                  style: AppTextStyle.interBold
-                      .copyWith(color: AppColors.black, fontSize: 24.w),
+                SizedBox(height: 20.h,),
+                Container(
+                  width: width,
+                  padding: EdgeInsets.symmetric(horizontal:8.w,vertical:4.w),
+                  decoration: BoxDecoration(
+                    color: AppColors.c_1A72DD,
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(width: 3.w,color: AppColors.black.withOpacity(0.4))
+                  ),
+                  child:Text(
+                    "name:${state.userModel.username}",
+                    style: AppTextStyle.interBold
+                        .copyWith(color: AppColors.black, fontSize: 24.w),
+                  ),
                 ),
-                Text(state.userModel.email,style: AppTextStyle.interMedium.copyWith(
-                  color: AppColors.black,fontSize: 14.w
-                ),),
+                SizedBox(height: 20.h,),
+                Container(
+                  width: width,
+                  padding: EdgeInsets.symmetric(horizontal:8.w,vertical:4.w),
+                  decoration: BoxDecoration(
+                      color: AppColors.c_1A72DD,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(width: 3.w,color: AppColors.black.withOpacity(0.4))
+                  ),
+                  child:Text(
+                    "last name:${state.userModel.lastname}",
+                    style: AppTextStyle.interBold
+                        .copyWith(color: AppColors.black, fontSize: 24.w),
+                  ),
+                ),
+                SizedBox(height: 20.h,),
+                Container(
+                  width: width,
+                  padding: EdgeInsets.symmetric(horizontal:8.w,vertical:4.w),
+                  decoration: BoxDecoration(
+                      color: AppColors.c_1A72DD,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(width: 3.w,color: AppColors.black.withOpacity(0.4))
+                  ),
+                  child:Text(
+                    "email:${state.userModel.email}",
+                    style: AppTextStyle.interBold
+                        .copyWith(color: AppColors.black, fontSize: 24.w),
+                  ),
+                ),
+                SizedBox(height: 20.h,),
+                Container(
+                  width: width,
+                  padding: EdgeInsets.symmetric(horizontal:8.w,vertical:4.w),
+                  decoration: BoxDecoration(
+                      color: AppColors.c_1A72DD,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(width: 3.w,color: AppColors.black.withOpacity(0.4))
+                  ),
+                  child:Text(
+                    "phone:${state.userModel.phoneNumber}",
+                    style: AppTextStyle.interBold
+                        .copyWith(color: AppColors.black, fontSize: 24.w),
+                  ),
+                ),
+                SizedBox(height: 20.h,),
+                InkWell(onTap: (){
+                  Navigator.pushNamed(context,RouteNames.securityRoute);
+                },
+                  child: Container(
+                    width: width,
+                    padding: EdgeInsets.symmetric(horizontal:8.w,vertical:4.w),
+                    decoration: BoxDecoration(
+                        color: AppColors.c_1A72DD,
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(width: 3.w,color: AppColors.black.withOpacity(0.4))
+                    ),
+                    child:Text(
+                      "Security",
+                      textAlign: TextAlign.center,
+                      style: AppTextStyle.interBold
+                          .copyWith(color: AppColors.black, fontSize: 24.w),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20.h,),
                 BlocListener<AuthBloc, AuthState>(
                   listener: (context, state) {
                     if (state.status == FormsStatus.unauthenticated) {
@@ -55,15 +131,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           context, RouteNames.authRoute, (route) => false);
                     }
                   },
-                  child: TextButton(
-                      onPressed: () {
-                        context.read<AuthBloc>().add(LogOutUserEvent());
-                      },
-                      child: Text(
-                        "Log out",
-                        style: AppTextStyle.interBold
-                            .copyWith(color: Colors.red, fontSize: 16),
-                      )),
+                  child: Center(
+                    child: TextButton(
+                        onPressed: () {
+                          context.read<AuthBloc>().add(LogOutUserEvent());
+                        },
+                        child: Text(
+                          "Log out",
+                          textAlign: TextAlign.center,
+                          style: AppTextStyle.interBold
+                              .copyWith(color: Colors.red, fontSize: 20.w),
+                        )),
+                  ),
                 )
               ],
             ),
