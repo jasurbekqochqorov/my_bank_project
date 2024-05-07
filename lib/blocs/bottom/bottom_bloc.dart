@@ -7,9 +7,7 @@ import 'package:my_bank_project/data/repositories/auth_repository.dart';
 
 class BottomBloc extends Bloc<BottomEvent, BottomState> {
   BottomBloc({required this.authRepository})
-      : super(BottomState()) {
-
-  }
+      : super(BottomState());
 
   final AuthRepository authRepository;
 }

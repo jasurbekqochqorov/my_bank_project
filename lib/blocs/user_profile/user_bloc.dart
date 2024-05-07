@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_bank_project/blocs/user_profile/user_event.dart';
 import 'package:my_bank_project/blocs/user_profile/user_state.dart';
 import 'package:my_bank_project/data/models/form_status.dart';
 import 'package:my_bank_project/data/models/network.dart';
 import 'package:my_bank_project/data/models/user_model.dart';
-import 'package:my_bank_project/data/repositories/auth_repository.dart';
 import 'package:my_bank_project/data/repositories/user_profile_repositroy.dart';
 
 class UserBloc extends Bloc<UserEvent, UserState> {

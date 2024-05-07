@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_bank_project/app/app.dart';
 import 'package:my_bank_project/utils/colors/app_colors.dart';
 import 'package:my_bank_project/utils/styles/app_text_style.dart';
 import 'package:my_utils/my_utils.dart';

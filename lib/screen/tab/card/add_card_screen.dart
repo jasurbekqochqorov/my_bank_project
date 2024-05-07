@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_bank_project/blocs/card/card_bloc.dart';
 import 'package:my_bank_project/blocs/card/card_event.dart';
 import 'package:my_bank_project/blocs/card/card_state.dart';
-import 'package:my_bank_project/blocs/user_profile/user_bloc.dart';
 import 'package:my_bank_project/data/models/card_model.dart';
 import 'package:my_bank_project/utils/colors/app_colors.dart';
 import 'package:my_bank_project/utils/styles/app_text_style.dart';
@@ -26,7 +25,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Add Card Screen"),
+        title: const Text("Add Card Screen"),
       ),
       body: BlocConsumer<CardBloc, CardState>(
         builder: (context, state) {

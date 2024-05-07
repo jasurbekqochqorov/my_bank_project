@@ -111,8 +111,9 @@ class _EntryPinScreenState extends State<EntryPinScreen> {
     debugPrint("ASDF");
     bool authenticated=await BiometricAuthService.authenticate();
     if(authenticated){
-      if(!context.mounted) return;
-      Navigator.pushReplacementNamed(context, RouteNames.tabRoute);
+      if(mounted) {
+        Navigator.pushReplacementNamed(context, RouteNames.tabRoute);
+      }
     }
   }
 

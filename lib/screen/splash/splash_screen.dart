@@ -1,9 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:my_bank_project/blocs/auth/auth_bloc.dart';
 import 'package:my_bank_project/blocs/user_profile/user_bloc.dart';
 import 'package:my_bank_project/blocs/user_profile/user_event.dart';

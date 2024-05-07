@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_bank_project/utils/colors/app_colors.dart';
 import 'package:my_bank_project/utils/styles/app_text_style.dart';

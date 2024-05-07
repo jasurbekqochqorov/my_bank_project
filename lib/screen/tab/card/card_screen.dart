@@ -89,7 +89,7 @@ class _CardScreenState extends State<CardScreen> {
                             Text(cardModel.cardHolder,style: AppTextStyle.interBold.copyWith(
                               color: AppColors.white,fontSize: 16.w
                             ),),
-                            Spacer(),
+                            const Spacer(),
                             Text('Uzcard',style: AppTextStyle.interBold.copyWith(
                               color: AppColors.white,fontSize: 15.w
                             ),)

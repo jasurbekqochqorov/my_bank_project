@@ -7,7 +7,6 @@ import 'package:my_bank_project/data/models/user_model.dart';
 import 'package:my_bank_project/screen/auth/register/widget/bottom_information.dart';
 import 'package:my_bank_project/screen/auth/register/widget/register_button.dart';
 import 'package:my_bank_project/screen/auth/register/widget/test_field_widget.dart';
-import 'package:my_bank_project/screen/routes.dart';
 import 'package:my_bank_project/utils/constants/app_constants.dart';
 import 'package:my_utils/my_utils.dart';
 import '../../../../utils/colors/app_colors.dart';

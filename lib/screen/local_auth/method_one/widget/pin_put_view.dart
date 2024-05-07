@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_bank_project/utils/colors/app_colors.dart';
 import 'package:my_utils/my_utils.dart';
@@ -55,7 +54,7 @@ class PinPutTextView extends StatelessWidget {
         ),
         obscureText: true,
         obscuringWidget: Container(
-          margin: EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: isError?

@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:my_bank_project/data/models/form_status.dart';
 import 'package:my_bank_project/data/models/user_model.dart';
 

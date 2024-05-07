@@ -32,7 +32,7 @@ class _RegisterButtonState extends State<RegisterButton> {
           onPressed:(widget.isReady)?widget.onTap:null,
           style: TextButton.styleFrom(
               backgroundColor:
-                  (widget.isReady) ? AppColors.c_1317DD : AppColors.c_C4C4C4,
+                  (widget.isReady) ? AppColors.c_1317DD : AppColors.cC4C4C4,
               padding: EdgeInsets.symmetric(vertical: 16.h)),
           child: Center(
             child: (widget.isLoading)

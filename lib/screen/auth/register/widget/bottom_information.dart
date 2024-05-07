@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_bank_project/blocs/auth/auth_bloc.dart';
-import 'package:my_bank_project/screen/routes.dart';
 import 'package:my_utils/my_utils.dart';
 import '../../../../utils/colors/app_colors.dart';
 import '../../../../utils/images/app_images.dart';
