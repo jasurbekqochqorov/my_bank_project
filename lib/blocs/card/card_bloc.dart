@@ -72,6 +72,7 @@ class CardBloc extends Bloc<CardEvent, CardState> {
     }
   }
   listenCard(GetCardByUserIdEvent event,Emitter emit)async{
+    debugPrint("MyDocId: ${event.userId}-----------------");
     await emit.onEach(
       cardsRepository.getCardByDocID(event.userId),
       onData:(List<CardModel> userCards){
