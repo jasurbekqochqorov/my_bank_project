@@ -41,6 +41,16 @@ class _CardScreenState extends State<CardScreen> {
                 Expanded(
                   child: ListView(children:List.generate(state.userCards.length, (index){
                     CardModel cardModel=state.userCards[index];
+                    String cardNumber="";
+                    for(int i=0; i<cardModel.cardNumber.length; i++){
+                      if((i+1)%4==0){
+                        cardNumber+=cardModel.cardNumber[i];
+                        cardNumber+='  ';
+                      }
+                      else{
+                        cardNumber+=cardModel.cardNumber[i];
+                      }
+                    }
                     return Container(
                       padding: EdgeInsets.symmetric(horizontal: 26.w,vertical: 16.h),
                       decoration: BoxDecoration(
@@ -65,7 +75,7 @@ class _CardScreenState extends State<CardScreen> {
                           SizedBox(height: 10.h,),
                           Row(children: [
                             SizedBox(width: 10.w,),
-                            Text(cardModel.cardNumber,style: AppTextStyle.interBold.copyWith(
+                            Text(cardNumber,style: AppTextStyle.interBold.copyWith(
                                 color: AppColors.white,fontSize: 22.w
                             ),),
                         ],),
