@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_bank_project/blocs/card/card_bloc.dart';
+import 'package:my_bank_project/blocs/card/card_event.dart';
 import 'package:my_bank_project/blocs/user_profile/user_bloc.dart';
+import 'package:my_bank_project/data/repositories/cards_repositroy.dart';
 import 'package:my_bank_project/data/repositories/user_profile_repositroy.dart';
 
 import '../blocs/auth/auth_bloc.dart';
@@ -21,6 +24,7 @@ class App extends StatelessWidget {
       providers: [
         RepositoryProvider(create: (_) => AuthRepository()),
         RepositoryProvider(create: (_) => UserProfileRepository()),
+        RepositoryProvider(create: (_) => CardsRepository()),
       ],
       child: MultiBlocProvider(
         providers: [
@@ -34,6 +38,10 @@ class App extends StatelessWidget {
           BlocProvider(
             create: (context) =>
             UserBloc(userProfileRepository: context.read<UserProfileRepository>())),
+
+          BlocProvider(
+              create: (context) =>
+                  CardBloc(cardsRepository: context.read<CardsRepository>())..add(GetCardsDatabaseEvent())),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

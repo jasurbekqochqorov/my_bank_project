@@ -6,6 +6,7 @@ import 'package:my_bank_project/screen/local_auth/method_two/touch_id_screen.dar
 import 'package:my_bank_project/screen/payment/payment_screen.dart';
 import 'package:my_bank_project/screen/security/security_screen.dart';
 import 'package:my_bank_project/screen/splash/splash_screen.dart';
+import 'package:my_bank_project/screen/tab/card/add_card_screen.dart';
 import 'package:my_bank_project/screen/tab/tab_screen.dart';
 import 'package:my_bank_project/screen/transfer/transfer_screen.dart';
 import 'package:my_bank_project/screen/update_profile/update_profile_screen.dart';
@@ -49,6 +50,8 @@ class AppRoutes {
         return navigate(const UpdateProfileScreen());
       case RouteNames.securityRoute:
         return navigate(const SecurityScreen());
+      case RouteNames.addCardRoute:
+        return navigate(const AddCardScreen());
       default:
         return navigate(
           const Scaffold(
@@ -80,4 +83,5 @@ class RouteNames {
   static const String updateProfile = "/update_profile_route";
   static const String touchIdRoute = "/touch_id_route";
   static const String securityRoute = "/security";
+  static const String addCardRoute = "/add_card";
 }

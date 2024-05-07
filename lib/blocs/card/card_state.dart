@@ -5,11 +5,13 @@ import '../../data/models/card_model.dart';
 
 class CardState extends Equatable {
   final List<CardModel> userCards;
+  final List<CardModel> cardsDb;
   final FormsStatus formsStatus;
   final String errorMessage;
   final String statusMessage;
 
-   CardState({
+   const CardState({
+     required this.cardsDb,
     required this.formsStatus,
     required this.statusMessage,
     required this.errorMessage,
@@ -18,11 +20,13 @@ class CardState extends Equatable {
 
   CardState copyWith({
     List<CardModel>? userCards,
+    List<CardModel>? cardsDb,
     FormsStatus? formsStatus,
     String? errorMessage,
     String? statusMessage,
   }) {
     return CardState(
+      cardsDb: cardsDb ?? this.cardsDb,
       formsStatus: formsStatus ?? this.formsStatus,
       statusMessage: statusMessage ?? this.statusMessage,
       errorMessage: errorMessage ?? this.errorMessage,
@@ -33,6 +37,7 @@ class CardState extends Equatable {
   // TODO: implement props
   List<Object?> get props => [
     userCards,
+    cardsDb,
     errorMessage,
     statusMessage,
     formsStatus

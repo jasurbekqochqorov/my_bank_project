@@ -10,5 +10,6 @@ class AppConstants {
 
   static String users='users';
   static String cards='cards';
+  static String cardsDatabase='database';
 }
 

@@ -63,13 +63,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   _registerUser(RegisterUserEvent event, emit) async {
     emit(state.copyWith(status: FormsStatus.loading));
-    debugPrint("AAAAA1");
     NetworkResponse networkResponse =
     await authRepository.registerWithEmailAndPassword(
       email:event.userModel.email,
       password: event.userModel.password,
     );
-    debugPrint("AAAAA2");
     if (networkResponse.errorText.isEmpty) {
       UserCredential userCredential = networkResponse.data as UserCredential;
       UserModel userModel=event.userModel.copyWith(

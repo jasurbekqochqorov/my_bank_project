@@ -46,7 +46,6 @@ class  UpdateCardEvent extends CardEvent{
 }
 
 class  GetCardByUserIdEvent extends CardEvent{
-
   final String userId;
   GetCardByUserIdEvent({
     required this.userId
@@ -57,4 +56,10 @@ class  GetCardByUserIdEvent extends CardEvent{
   List<Object?> get props => [
     userId
   ];
+}
+
+class  GetCardsDatabaseEvent extends CardEvent{
+  @override
+  // TODO: implement props
+  List<Object?> get props => [];
 }
