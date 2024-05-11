@@ -12,6 +12,7 @@ class AppImages {
 
   //.svg
   static const String delete = "assets/icons/delete.svg";
+  static const String visa = "assets/icons/visa.svg";
   static const String splash = "assets/icons/bank.svg";
   static const String password = "assets/icons/password.svg";
   static const String email = "assets/icons/email.svg";

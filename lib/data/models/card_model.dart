@@ -98,6 +98,20 @@ class CardModel {
       "isMain":isMain,
     };
   }
+  static CardModel initial() => CardModel(
+    icon: "",
+    balance: 0,
+    cardHolder: "",
+    cardNumber: "",
+    cvc: "",
+    userId: "",
+    expireDate: "",
+    type: -1,
+    bank: "",
+    cardId: "",
+    color: "000000",
+    isMain: false,
+  );
 
   // static CardModel initial() => CardModel(color: color, authId: authId, cardNumber: cardNumber, cardHolder: cardHolder, expireDate: expireDate, userId: userId, balance: balance, bank: bank, cvc: cvc, icon: icon, type: type, cardId: cardId);
 }

@@ -27,7 +27,6 @@ class UpdateUserEvent extends UserEvent{
   ];
 }
 
-
 class DeleteUserEvent extends UserEvent{
   final UserModel userModel;
   DeleteUserEvent({required this.userModel});

@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_bank_project/blocs/user_profile/user_event.dart';
 import 'package:my_bank_project/blocs/user_profile/user_state.dart';
@@ -79,6 +81,15 @@ class UserBloc extends Bloc<UserEvent, UserState> {
           formsStatus: FormsStatus.success,
           userModel:networkResponse.data as UserModel
       ));
+
+      String? token = await FirebaseMessaging.instance.getToken();
+      if(token!=null){
+        UserModel userModel=state.userModel;
+        userModel=userModel.copyWith(
+          fcm: token
+        );
+        add(UpdateUserEvent(userModel:userModel));
+      }
     }
     else{
       emit(state.copyWith(
