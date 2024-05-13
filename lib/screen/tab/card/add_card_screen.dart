@@ -25,8 +25,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
   TextEditingController expireDateController = TextEditingController();
   FocusNode cardFocusNode=FocusNode();
   FocusNode expireDataFocusNode=FocusNode();
-
-
+  String card='';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +47,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
               child: Column(
                 children: [
                   Container(
-                    height: 163.h,
+                    height:180.h,
                     width: double.infinity,
                     padding: EdgeInsets.symmetric(horizontal:15.w,vertical: 16.h),
                     decoration: BoxDecoration(
@@ -63,6 +62,10 @@ class _AddCardScreenState extends State<AddCardScreen> {
                         Text('Platinum',style: AppTextStyle.interMedium.copyWith(
                           color: AppColors.white,fontSize: 16.w
                         ),),
+                        SizedBox(height: 10.h,),
+
+                        Text(card,style: AppTextStyle.interMedium.copyWith(
+                          color: AppColors.white,fontSize: 25.w),),
                         const Spacer(),
                         Text('........',style: AppTextStyle.interMedium.copyWith(
                           color: AppColors.white,fontSize: 35.w
@@ -71,27 +74,15 @@ class _AddCardScreenState extends State<AddCardScreen> {
                     ),
                   ),
                   SizedBox(height: 20.h,),
-                  TextField(
-                    cursorColor: AppColors.white,
-                    controller:nameController,
-                    decoration: InputDecoration(
-                        hintText: "card user",
-                        hintStyle: AppTextStyle.interMedium.copyWith(
-                            color: AppColors.white
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(16),
-                            borderSide: BorderSide(
-                                width: 1.w,
-                                color: AppColors.c_858BE9)),
-                        enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(16),
-                            borderSide: BorderSide(
-                                width: 1.w,
-                                color:AppColors.c_858BE9))),
-                  ),
-                  SizedBox(height: 20.h,),
-                  CardNumberInput(controller:cardController, focusNode: cardFocusNode,isSender: false,),
+                  CardNumberInput(
+                  function: (v) {
+                    if (v.replaceAll(" ", "").length == 16) {
+                      cardFocusNode.unfocus();
+                    }
+                    card=v;
+                    setState(() {});
+                  },
+                    controller:cardController, focusNode: cardFocusNode,isSender: false,),
                   SizedBox(
                     height: 20.h,
                   ),
@@ -103,19 +94,24 @@ class _AddCardScreenState extends State<AddCardScreen> {
                     width: width,
                     child: TextButton(
                       onPressed: () {
+                        setState(() {});
+                        String cardNumber=cardController.text.replaceAll(" ", "");
                         List<CardModel> db = state.cardsDb;
                         List<CardModel> myCards = state.userCards;
                         bool isExists = false;
                         for (var element in myCards) {
-                          if (element.cardNumber == cardController.text) {
+                          if (element.cardNumber == cardNumber) {
                             isExists = true;
                             break;
                           }
                         }
                         CardModel? cardModel;
                         bool hasInDb = false;
+                        debugPrint("HEEEEEEEE${cardNumber}");
                         for (var element in db) {
-                          if (element.cardNumber == cardController.text) {
+                          debugPrint("ELEMENT:${element.cardNumber}");
+                          if (element.cardNumber == cardNumber) {
+                            cardController.text=element.cardHolder;
                             hasInDb = true;
                             cardModel = element;
                             break;

@@ -70,4 +70,16 @@ class CardsRepository {
           }).toList();
     });
   }
+
+  Stream<List<CardModel>> getActiveCardDatabase() {
+    return FirebaseFirestore.instance
+        .collection(AppConstants.cards)
+        .snapshots()
+        .map((event){
+      return event.docs.map((doc){
+        debugPrint("ACTIVE LENGTH:${doc.data().length}");
+        return CardModel.fromJson(doc.data());
+      }).toList();
+    });
+  }
 }

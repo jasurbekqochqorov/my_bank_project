@@ -63,3 +63,9 @@ class  GetCardsDatabaseEvent extends CardEvent{
   // TODO: implement props
   List<Object?> get props => [];
 }
+
+class  GetActiveCardsEvent extends CardEvent{
+  @override
+  // TODO: implement props
+  List<Object?> get props => [];
+}

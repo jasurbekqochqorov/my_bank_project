@@ -7,12 +7,15 @@ class CardNumberInput extends StatefulWidget {
   final TextEditingController controller;
   final FocusNode focusNode;
   final bool isSender;
+  final Function(String v) function;
+
 
   const CardNumberInput({
     super.key,
     required this.controller,
     required this.focusNode,
     required this.isSender,
+    required this.function,
   });
 
   @override
@@ -35,12 +38,7 @@ class _CardNumberInputState extends State<CardNumberInput> {
       focusNode: widget.focusNode,
       controller: widget.controller,
       inputFormatters: [maskFormatter],
-      onChanged: (v) {
-        if (v.replaceAll(" ", "").length == 16) {
-          widget.focusNode.unfocus();
-        }
-        setState(() {});
-      },
+      onChanged:widget.function,
       decoration: InputDecoration(
         suffixIcon: widget.controller.text.isNotEmpty
             ? IconButton(
@@ -60,11 +58,11 @@ class _CardNumberInputState extends State<CardNumberInput> {
           borderRadius: BorderRadius.circular(16),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide:BorderSide(color:(widget.isSender)?AppColors.black:AppColors.c_858BE9),
+          borderSide:widget.isSender?BorderSide.none:BorderSide(color:AppColors.c_858BE9,width: 1.w),
           borderRadius: BorderRadius.circular(16),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide:BorderSide(color:(widget.isSender)?AppColors.black:AppColors.c_858BE9),
+          borderSide:widget.isSender?BorderSide.none:BorderSide(color:AppColors.c_858BE9,width: 1.w),
           borderRadius: BorderRadius.circular(8),
         ),
         focusedErrorBorder: OutlineInputBorder(

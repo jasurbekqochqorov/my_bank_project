@@ -23,6 +23,8 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
     on<SetReceiverCardEvent> (_setReceiverCard);
     on<SetSenderCardEvent> (_setSendCard);
     on<CheckValidationEvent>(_checkValidation);
+    on<RunTransactionEvent>(_runTransactionEvent);
+    on<SetInitialEvent>(_setInitial);
   }
 
   final CardsRepository cardsRepository;
@@ -65,8 +67,8 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
       balance: cardSender.balance-state.amount
     );
 
+     bool isUpdate2=await updateCard(cardReceiver);
     bool isUpdate1=await updateCard(cardSender);
-    bool isUpdate2=await updateCard(cardReceiver);
 
     if(isUpdate2 && isUpdate1){
       emit(
@@ -84,5 +86,17 @@ updateCard(CardModel cardModel)async{
   }
   else{}
 }
+  _setInitial(SetInitialEvent event, emit) {
+    emit(
+      TransactionState(
+        status: FormsStatus.pure,
+        errorMessage: "",
+        statusMessage: "",
+        receiverCard: CardModel.initial(),
+        senderCard: CardModel.initial(),
+        amount: 0.0,
+      ),
+    );
+  }
 
 }

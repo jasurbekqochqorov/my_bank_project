@@ -3,7 +3,6 @@ class CardModel {
   final String cardHolder;
   final String expireDate;
   final String cvc;
-  final int type;
   final String userId;
   final String icon;
   final String bank;
@@ -23,7 +22,6 @@ class CardModel {
     required this.bank,
     required this.cvc,
     required this.icon,
-    required this.type,
     required this.cardId
   });
 
@@ -36,7 +34,6 @@ class CardModel {
     double? balance,
     String? bank,
     String? icon,
-    int? type,
     String? cardId,
     String? cvc,
     bool? isMain
@@ -51,7 +48,6 @@ class CardModel {
       bank: bank ?? this.bank,
       icon: icon ?? this.icon,
       cardId: cardId ?? this.cardId,
-      type: type ?? this.type,
       expireDate: expireDate ?? this.expireDate,
       cvc: cvc ?? this.cvc,
     );
@@ -68,7 +64,6 @@ class CardModel {
       cvc: json['cvc'] as String? ?? "",
       icon: json['icon'] as String? ?? "",
       cardId: json['cardId'] as String? ?? "",
-      type: json['type'] as int? ?? 0,
       expireDate: json['expireDate'] as String? ?? "",
       balance:(json['balance'] as num? ?? 0).toDouble(),
     );
@@ -84,7 +79,6 @@ class CardModel {
       "bank": bank,
       "balance": balance,
       "expireDate": expireDate,
-      "type":type,
       "cardId":cardId,
       "color":color,
       "isMain":isMain
@@ -106,7 +100,6 @@ class CardModel {
     cvc: "",
     userId: "",
     expireDate: "",
-    type: -1,
     bank: "",
     cardId: "",
     color: "000000",

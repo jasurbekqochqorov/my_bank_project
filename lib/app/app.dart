@@ -43,7 +43,7 @@ class App extends StatelessWidget {
           BlocProvider(
               create: (context) =>
                   CardBloc(cardsRepository: context.read<CardsRepository>())
-                    ..add(GetCardsDatabaseEvent())),
+                    ..add(GetCardsDatabaseEvent())..add(GetActiveCardsEvent())),
 
           BlocProvider(
               create: (context) =>

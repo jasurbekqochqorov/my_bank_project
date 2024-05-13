@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_bank_project/screen/tab/card/card_screen.dart';
 import 'package:my_bank_project/screen/tab/profile/profile_screen.dart';
 
+import '../../blocs/transaction/transaction_bloc.dart';
+import '../../blocs/transaction/transaction_event.dart';
 import '../../utils/colors/app_colors.dart';
+import '../routes.dart';
 import 'history/history_screen.dart';
 import 'home/home_screen.dart';
 
@@ -49,6 +53,15 @@ class _TabScreenState extends State<TabScreen> {
             label: "Profile",
           )
         ],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: AppColors.c_1317DD,
+        child: const Icon(Icons.currency_exchange),
+        onPressed: () {
+          context.read<TransactionBloc>().add(SetInitialEvent());
+          Navigator.pushNamed(context, RouteNames.transferRoute);
+        },
       ),
     );
   }

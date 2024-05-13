@@ -12,6 +12,7 @@ class CardBloc extends Bloc<CardEvent, CardState> {
   CardBloc({required this.cardsRepository}) :super(
       const CardState(
         cardsDb: [],
+        activeCards:[],
         formsStatus: FormsStatus.pure,
         statusMessage: '',
         errorMessage: '',
@@ -21,6 +22,7 @@ class CardBloc extends Bloc<CardEvent, CardState> {
     on<UpdateCardEvent>(updateCard);
     on<DeleteCardEvent>(deleteCard);
     on<GetCardByUserIdEvent>(listenCard);
+    on<GetActiveCardsEvent>(listenActiveCard);
     on<GetCardsDatabaseEvent>(listenCardDatabase);
   }
 
@@ -90,5 +92,16 @@ class CardBloc extends Bloc<CardEvent, CardState> {
         }
     );
   }
+
+  listenActiveCard(GetActiveCardsEvent event,Emitter emit)async{
+    await emit.onEach(
+        cardsRepository.getActiveCardDatabase(),
+        onData:(List<CardModel> active){
+          emit(state.copyWith(activeCards: active));
+        }
+    );
+  }
+
+
 
 }
